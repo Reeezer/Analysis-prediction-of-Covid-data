@@ -1,24 +1,32 @@
-import matplotlib.pyplot as plt
-import numpy as np
+import plotly.express as ex
+import plotly.graph_objects as go
 
-def scatter_plot(X_train, X_test, X_pred, y_train, y_test, y_pred, title="Title"):
-    X1, y1 = reshape_order_data(X_train, y_train)
-    X2, y2 = reshape_order_data(X_test, y_test)
+def scatter_plot(X_train, X_test, X_range, X_pred, y_train, y_test, y_range, y_pred, title="Title"):
+    fig = go.Figure([
+        go.Scatter(x=X_train.squeeze(), y=y_train, name='train', mode='markers', opacity=0.7),
+        go.Scatter(x=X_test.squeeze(), y=y_test, name='test', mode='markers', opacity=0.7),
+        go.Scatter(x=X_range.squeeze(), y=y_range, name='model fit'),
+        go.Scatter(x=X_pred.squeeze(), y=y_pred, name='prediction')
+    ])
 
-    plt.figure(figsize=(20, 7))
-    plt.fill_between(X1, y1, 0, color='blue', facecolor='cornflowerblue', alpha=0.6, label='train')
-    plt.plot(X2, y2, color='red', linewidth=3, label='test')
-    plt.plot(X_pred, y_pred, color='green', linewidth=3, label='prediction')
-    plt.title(title)
-    plt.xlabel('Date')
-    plt.ylabel('New deaths')
-    plt.legend()
-    plt.show()
+    fig.update_layout(
+        title={
+            'text': title,
+            'xanchor': 'center',
+            'yanchor': 'top'
+        },
+        xaxis_title='Date',
+        yaxis_title='New deaths'
+    )
 
-def reshape_order_data(X, y):
-    X_reshaped = X.reshape(-1)
-    y_reshaped = y.reshape(-1)
-    order = np.argsort(X_reshaped)
-    x_ordered = np.array(X_reshaped)[order]
-    y_ordered = np.array(y_reshaped)[order]
-    return x_ordered, y_ordered
+    fig.show()
+
+def features_importance(model, X):
+    colors = ['Positive' if c > 0 else 'Negative' for c in model.coef_]
+    fig = ex.bar(
+        x=X.columns, y=model.coef_, color=colors,
+        color_discrete_sequence=['red', 'blue'],
+        labels=dict(x='Feature', y='Linear coefficient'),
+        title='Weight of each feature'
+    )
+    fig.show()
