@@ -9,7 +9,7 @@ f.close()
 
 markdown_cells = [cell for cell in text_json['cells'] if cell['cell_type'] == "markdown"]
 
-f = open("Rapport.md", "wb")
+f = open("rapport.md", "wb")
 for md in markdown_cells:
 	for line in md['source']:
 		f.write(line.encode('utf8'))
