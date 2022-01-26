@@ -4,10 +4,6 @@ import plotly.express as ex
 import plotly.graph_objects as go
 
 
-def scatter_plot_squeeze(X_train, X_test, X_range, X_pred, y_train, y_test, y_range, y_pred, title="Title", y_baseline=None):
-    scatter_plot(X_train.squeeze(), X_test.squeeze(), X_range.squeeze(), X_pred.squeeze(), y_train, y_test, y_range, y_pred, y_baseline, title)
-
-
 def scatter_plot(X_train, X_test, X_range, X_pred, y_train, y_test, y_range, y_pred, y_baseline=None, title="Title"):
     fig = go.Figure([
         go.Scatter(x=X_train, y=y_train, name='train', mode='markers', opacity=0.7),

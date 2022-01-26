@@ -6,6 +6,8 @@ f = open("projet.ipynb", "r", encoding='utf-8')
 text_json = json.loads(f.read())
 f.close()
 
+numbers = [f"{i}" for i in range(100)]
+
 markdown_cells = [cell for cell in text_json['cells'] if cell['cell_type'] == "markdown"]
 
 f = open("summary.md", "wb")
@@ -20,7 +22,7 @@ for md in markdown_cells:
                 
             j = i
             tabs = ''       
-            while title[j] in '1234567890.':
+            while title[j] in numbers or title[j] in '.':
                 if title[j] in '1234567890':
                     tabs += '\t'
                 j += 1
