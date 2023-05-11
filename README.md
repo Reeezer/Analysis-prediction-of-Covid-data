@@ -1,11 +1,9 @@
-# Analysis and prediction of Covid-19 data using Python
+# Analysis and Prediction of Covid-19 Data using Python
 
-La grande majorité du code se trouve dans le notebook `analysis-and-prediction-of-covid.ipynb`, et quelques scripts python sont à côtés. Le code contient aussi le rapport, le but est d'avoir un rapport interactif où le lecteur peut aisément modifier certains paramètres pour ainsi 'jouer' avec le travail effectuer. Pour ce faire, le code et le rapport sont directement rendus dans un notebook, il vous faut donc installer application permettant de lire un notebook (anaconda, visual studio code, etc.). Pour ceux ne souhaitant pas faire cette démarche, une version HTML du projet est aussi disponible et visionable depuis un navigateur ou une application tierce. Cependant, il faut noter que cette version HTML ne prend pas en compte la mise en page des images.
+The Analysis and Prediction of Covid-19 Data project focuses on utilizing machine learning techniques to analyze and predict trends in Covid-19 data. This project leverages the power of Python and the Scikit-learn package to perform time forecasting.
 
-## Installation
+The main objective of this project is to provide insights into the spread and impact of Covid-19 by analyzing historical data and making predictions about future trends. By applying machine learning algorithms, the project aims to identify patterns, correlations, and potential factors that influence the progression of the pandemic.
 
-Afin de pouvoir exécuter et tester les différents scripts présents dans le notebook, il faut importer et installer les bibliothèques utilisées. Pour ce faire, il suffit, avec `pip` installé, de lancer la commande suivante (dans un terminal à la racine du dossier dans lequel se trouve le notebook): `pip install -r requirements.txt`. Cette commande va alors installer automatiquement les versions des bibliothèques spécifiées dans le fichier `requirements.txt`.*
+The project utilizes various data analysis techniques, such as data preprocessing, feature engineering, and model selection, to prepare the Covid-19 data for prediction. Machine learning algorithms, available through the Scikit-learn package, are then applied to train models based on the prepared data.
 
-## Fichiers python
-
-Le seul fichier complémentaire au notebook, est le script python `toolbox.py`, les autres scripts ont servis pour le rapport.
+These models can be used to forecast future Covid-19 cases, hospitalizations, or other relevant metrics. The project allows users to gain a better understanding of the pandemic's dynamics, assess potential risks, and make informed decisions based on the predicted outcomes.
